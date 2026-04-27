@@ -1,148 +1,88 @@
-import React, { useState, useEffect } from 'react';
-import { 
-  Github, 
-  Twitter, 
-  Linkedin, 
-  Instagram, 
-  Globe, 
-  Mail, 
-  MessageSquare,
-  ArrowUpRight,
-  MapPin,
-  Sparkles,
-  MessageCircle
-} from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Mail, ArrowUpRight } from 'lucide-react';
 import assets from './assets/assets.jsx';
 
 const { SOCIAL_LINKS, PROFILE } = assets;
 
-
-
 const App = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
-    
     return () => {
       document.documentElement.style.scrollBehavior = 'auto';
     };
   }, []);
 
-  const handleMouseMove = (e) => {
-    setMousePos({ x: e.clientX, y: e.clientY });
-  };
-
-
-
   return (
-    <div 
-      onMouseMove={handleMouseMove}
-      className="min-h-screen lg:h-screen w-full bg-[#030303] text-[#a1a1aa] font-sans selection:bg-white/10 overflow-y-auto overflow-x-hidden lg:overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-12 relative"
-      style={{ scrollBehavior: 'smooth' }}
-    >
-
-      <div 
-        className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300 opacity-40 hidden lg:block"
-        style={{
-          background: `radial-gradient(800px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255,255,255,0.06), transparent 40%)`
-        }}
-      />
+    <div className="min-h-screen w-full bg-[#050505] text-zinc-300 font-sans flex items-center justify-center p-6 md:p-8 relative overflow-hidden">
       
+      <div className="absolute top-0 w-full h-[500px] bg-gradient-to-b from-zinc-900/30 to-transparent pointer-events-none" />
 
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-500/5 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 blur-[120px] rounded-full animate-pulse delay-700" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-12 lg:gap-24 animate-in fade-in slide-in-from-bottom-4 duration-1000 items-center py-10 lg:py-0">
-        <header className="md:col-span-5 flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="relative inline-block mb-8 group">
-            <div className="absolute -inset-4 bg-gradient-to-tr from-zinc-800 to-zinc-400 rounded-[2.5rem] blur-2xl opacity-10 group-hover:opacity-30 transition-opacity duration-700" />
-            <img 
-              src={PROFILE.avatar} 
-              alt={PROFILE.name}
-              className="relative w-32 h-32 md:w-40 md:h-40 rounded-[2.5rem] border border-white/10 p-1.5 bg-[#0a0a0a] shadow-2xl transition-transform duration-700 group-hover:scale-[1.02]"
-            />
-            <div className="absolute -bottom-1 -right-1 bg-green-500 w-4 h-4 rounded-full border-4 border-[#030303]" />
-          </div>
-
-          <div className="space-y-4 w-full max-w-xs">
-            <div>
-              <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white leading-none">
-                {PROFILE.name.split(' ')[0]} <br/>
-                <span className="text-zinc-500">{PROFILE.name.split(' ')[1]}</span>
-              </h1>
-              <div className="flex items-center justify-center md:justify-start gap-3 mt-4 flex-wrap">
-                <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-zinc-400 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                  {PROFILE.role}
-                </span>
-                <div className="flex items-center gap-1.5 text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
-                  <MapPin size={12} className="text-zinc-700" />
-                  {PROFILE.location}
-                </div>
-              </div>
-            </div>
-
-            <p className="text-zinc-500 text-base md:text-lg leading-relaxed font-medium">
-              {PROFILE.bio}
-            </p>
-
-            <div className="pt-6 flex items-center justify-center md:justify-start gap-3">
-              <a 
-                href="mailto:keshavgilhotra4@gmail.com"
-                className="h-12 w-12 flex items-center justify-center bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-all text-zinc-400 hover:text-white active:scale-95 shadow-lg"
-              >
-                 <Mail size={20} />
-              </a>
-              <div className="h-8 w-px bg-white/5 mx-2" />
-              <div className="flex flex-col text-left">
-                <div className="flex items-center gap-1.5 text-[9px] font-black uppercase tracking-[0.2em] text-zinc-600">
-                  <Sparkles size={10} className="text-yellow-500/50" />
-                  Online
-                </div>
-                <p className="text-[10px] text-zinc-700 font-bold mt-0.5 whitespace-nowrap">Contactable Now</p>
-              </div>
-            </div>
-          </div>
+      <main className="relative z-10 w-full max-w-xl flex flex-col items-center animate-in fade-in slide-in-from-bottom-4 duration-1000 py-10 md:py-16">
+        <header className="flex flex-col items-center text-center w-full mb-12">
+          <img 
+            src={PROFILE.avatar} 
+            alt={PROFILE.name}
+            className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border border-zinc-800 mb-6 grayscale hover:grayscale-0 transition-all duration-500 shadow-xl"
+          />
+          
+          <h1 className="text-3xl md:text-4xl font-bold text-zinc-100 tracking-tight">
+            {PROFILE.name}
+          </h1>
+          
+          <p className="text-base font-medium text-zinc-400 mt-3">
+            {PROFILE.role} <span className="text-zinc-600 px-1.5">•</span> {PROFILE.location}
+          </p>
+          
+          <p className="text-base md:text-lg text-zinc-500 mt-5 leading-relaxed max-w-sm font-medium">
+            {PROFILE.bio}
+          </p>
         </header>
-        <main className="md:col-span-7 space-y-4 w-full">
+
+        <div className="flex flex-col w-full gap-4">
           {SOCIAL_LINKS.map((link, idx) => (
             <a 
               key={idx}
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between p-4 sm:p-5 bg-white/[0.02] border border-white/5 rounded-[1.5rem] backdrop-blur-2xl transition-all duration-500 group hover:bg-white/[0.04] hover:border-white/10 hover:md:translate-x-2 shadow-xl w-full"
+              className="group flex items-center justify-between px-6 py-5 bg-zinc-900/40 hover:bg-zinc-800/60 border border-zinc-800/80 hover:border-zinc-700 rounded-[1.25rem] transition-all duration-300 shadow-sm"
             >
-              <div className="flex items-center gap-4 sm:gap-5 min-w-0">
-                <div className={`p-3 bg-black rounded-2xl border border-white/5 transition-all duration-500 group-hover:scale-110 shadow-inner flex-shrink-0 ${link.color}`}>
-                  {React.cloneElement(link.icon, { size: 22 })}
+              <div className="flex items-center gap-5">
+                <div className={`${link.color} group-hover:scale-110 transition-transform duration-300`}>
+                  {React.cloneElement(link.icon, { size: 24, strokeWidth: 1.5 })}
                 </div>
-                <div className="text-left min-w-0">
-                  <h2 className="text-sm md:text-base font-bold text-white tracking-tight truncate">
-                    {link.name}
-                  </h2>
-                  <p className="text-[11px] text-zinc-600 font-bold uppercase tracking-[0.15em] mt-1 truncate">
-                    {link.desc}
-                  </p>
-                </div>
+                <h2 className="text-lg md:text-xl font-medium text-zinc-200 group-hover:text-white transition-colors tracking-tight">
+                  {link.name}
+                </h2>
               </div>
-              <div className="w-10 h-10 rounded-full border border-white/0 flex items-center justify-center group-hover:border-white/5 group-hover:bg-white/5 transition-all flex-shrink-0 ml-2">
-                <ArrowUpRight className="w-5 h-5 text-zinc-700 group-hover:text-white transition-all duration-300" />
-              </div>
+              <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-400 transition-colors" strokeWidth={1.5} />
             </a>
           ))}
-          
-          <footer className="pt-4 flex items-center justify-between px-2 text-zinc-800 font-black uppercase tracking-[0.3em] text-[10px]">
-             <span></span>
-             <div className="flex gap-4">
-               <span className="hover:text-zinc-600 cursor-pointer transition-colors">Designed in 2025</span>
-             </div>
-          </footer>
-        </main>
 
-      </div>
+        
+          <a 
+            href="mailto:keshavgilhotra4@gmail.com"
+            className="group flex items-center justify-between px-6 py-5 bg-zinc-900/40 hover:bg-zinc-800/60 border border-zinc-800/80 hover:border-zinc-700 rounded-[1.25rem] transition-all duration-300 shadow-sm mt-3"
+          >
+            <div className="flex items-center gap-5">
+              <div className="text-emerald-500 group-hover:scale-110 transition-transform duration-300">
+                <Mail size={24} strokeWidth={1.5} />
+              </div>
+              <h2 className="text-lg md:text-xl font-medium text-zinc-200 group-hover:text-white transition-colors tracking-tight">
+                Contact Me
+              </h2>
+            </div>
+            <ArrowUpRight className="w-5 h-5 text-zinc-600 group-hover:text-zinc-400 transition-colors" strokeWidth={1.5} />
+          </a>
+        </div>
+
+        <footer className="mt-16 text-center opacity-40">
+           <p className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-600">
+             Minimal Edition
+           </p>
+        </footer>
+
+      </main>
     </div>
   );
 };

@@ -8,11 +8,9 @@ const DiscordIcon = () => (
 );
 
 const SOCIAL_LINKS = [
-  { name: "Portfolio", url: "https://portfolio.ikeshav.tech", icon: <Globe />, desc: "Work & About Me..", color: "text-blue-400" },
+  { name: "Portfolio", url: "https://ikeshav.in", icon: <Globe />, desc: "Work & About Me..", color: "text-blue-400" },
   { name: "GitHub", url: "https://github.com/ikeshav26", icon: <Github />, desc: "Source Codes", color: "text-zinc-100" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/keshav-gilhotra", icon: <Linkedin />, desc: "Professional", color: "text-blue-600" },
-  { name: "Twitter", url: "https://twitter.com/keshavgilh95", icon: <Twitter />, desc: "Broadcasts", color: "text-sky-400" },
-  { name: "Discord", url: "https://discord.com/users/1353631480064245772", icon: <DiscordIcon />, desc: "Chat", color: "text-[#5865F2]" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/keshavgilhotra/", icon: <Linkedin />, desc: "Professional", color: "text-blue-600" },  { name: "Discord", url: "https://discord.com/users/1353631480064245772", icon: <DiscordIcon />, desc: "Chat", color: "text-[#5865F2]" },
 ];
 
 const PROFILE = {
