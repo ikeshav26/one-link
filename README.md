@@ -1,1 +1,1 @@
-My all social links
+SOCIAL LINKS
